@@ -370,7 +370,7 @@ $('soonSub').textContent=ended?'La campaña terminó el 6 de enero de 2027':live
 const upcoming=SP.filter(x=>d(x)>=ref);
 $('soon').innerHTML=(ended?SP.slice(-4):upcoming.length?upcoming.slice(0,4):SP.slice(-4)).map(ticket).join('');
 $('quickToday').innerHTML=(ended?'Ver últimas citas':live?'¿Qué hay hoy?':'Primeros eventos')+' <span aria-hidden="true">↘</span>';
-$('every').innerHTML=[...new Map(REC.map(x=>[x.Title,x])).values()].map(x=>`<article class="post"><small>Todas las noches · ${tm(x)}${x.End?'–'+x.End.slice(11,16):''}</small><h4>${safe(x.Title)}</h4><p>${safe(p(x))}</p></article>`).join('');
+$('every').innerHTML=[...new Map(REC.map(x=>[x.Title,x])).values()].map(x=>`<article class="post"><!--<small>Todas las noches · ${tm(x)}${x.End?'–'+x.End.slice(11,16):''}</small>--><h4>${safe(x.Title)}</h4><p>${safe(p(x))}</p></article>`).join('');
 const cats=[...new Set(E.flatMap(x=>x.Category))].filter(c=>c!=='navidad'&&c!=='visita').sort((a,b)=>catName(a).localeCompare(catName(b),'es'));
 $('category').innerHTML+=cats.map(c=>`<option value="${safe(c)}">${catName(c)}</option>`).join('');
 $('place').innerHTML+=[...new Set(E.map(p))].sort((a,b)=>a.localeCompare(b,'es')).map(n=>`<option value="${safe(n)}">${safe(n)}</option>`).join('');
