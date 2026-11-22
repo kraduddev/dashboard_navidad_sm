@@ -25,6 +25,8 @@ svg.i{width:1em;height:1em;fill:currentColor;vertical-align:-.12em}
 @keyframes glow{0%,100%{opacity:1}45%{opacity:.5}60%{opacity:.95}}
 
 .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:14px 0;border-bottom:2px solid var(--ink)}
+.brand{display:inline-flex;align-items:center;gap:8px}
+.brand img{height:1.8em;width:auto;display:block}
 .hero{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;padding:42px 0 30px}
 .hero h1{margin:0;font:900 clamp(52px,9vw,112px)/.9 Fraunces,Georgia,serif;letter-spacing:-.025em;font-variation-settings:"SOFT" 100,"WONK" 1}
 .hero h1 em{color:var(--redt);font-weight:700}
@@ -95,6 +97,8 @@ svg.i{width:1em;height:1em;fill:currentColor;vertical-align:-.12em}
 .btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
 .nothing{padding:30px;text-align:center;color:var(--muted);font-style:italic}
 footer{margin-top:60px;padding-top:18px;border-top:2px solid var(--ink);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+footer a{display:inline-flex;align-items:center;gap:6px;color:var(--ink)}
+footer a svg{width:1.3em;height:1.3em;fill:currentColor}
 footer button{background:none;border:0;border-bottom:2px dotted var(--ink);padding:0;font:400 12px 'Space Mono',monospace;color:var(--ink)}
 @media (max-width:860px){.cols{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.seal{display:none}.sh small{display:none}}
 @media (max-width:420px){#app{padding:0 14px 50px}.tickets{grid-template-columns:1fr}.panel{padding:16px}.day{min-height:52px;padding:5px 3px}.day .c{display:none}.stamps{padding-right:0}.nota{display:none}}
@@ -181,11 +185,12 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="star" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></symbol>
+<symbol id="telegram" viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></symbol>
 <symbol id="pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></symbol>
 <path id="ring" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs></svg>
 <div id="app">
 <svg class="garland" id="garland" viewBox="0 0 1200 64" preserveAspectRatio="xMidYMin slice" aria-hidden="true"></svg>
-<div class="top"><span>Santa Marta de Tormes</span><span>Programa de Navidad · 2026/27</span></div>
+<div class="top"><span class="brand"><img src="src/sm.webp" alt="Escudo de Santa Marta de Tormes">Santa Marta de Tormes</span><span>Programa de Navidad · 2026/27</span></div>
 
 <header class="hero"><div>
 <h1><span id="nights">34</span> noches<br>de <em>luces</em></h1>
@@ -225,7 +230,7 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}
 <div class="toolbar"><label class="sr-only" for="search">Buscar actividades</label><input id="search" type="search" placeholder="Buscar: circo, Reyes, villancicos…" oninput="applyFilters()"><label class="sr-only" for="category">Categoría</label><select id="category" onchange="onAdvancedChange()"><option value="">Todo tipo de plan</option></select><label class="sr-only" for="place">Lugar</label><select id="place" onchange="applyFilters()"><option value="">Todos los lugares</option></select><label class="sr-only" for="kind">Tipo de actividad</label><select id="kind" onchange="onAdvancedChange()"><option value="special">Citas especiales</option><option value="all">Todo, con visitas</option><option value="recurring">Solo visitas de cada noche</option></select><button type="button" class="clear-filters" id="clearFilters" onclick="clearFilters()" hidden>Limpiar filtros</button></div>
 <div class="tickets" id="results"></div><button class="btn" id="showmore" onclick="increaseLimit()">Ver más citas ↓</button></section>
 
-<footer><span>Horarios según el programa municipal; pueden cambiar. Santa Marta de Tormes, Navidad 2026/27.</span><!--<button id="jsonBtn" onclick="downloadJSON()">Descargar datos (.json)</button>-->EFG</footer>
+<footer><span>Horarios según el programa municipal; pueden cambiar. Santa Marta de Tormes, Navidad 2026/27.</span><!--<button id="jsonBtn" onclick="downloadJSON()">Descargar datos (.json)</button>--><a href="https://t.me/VillaNavidenaSM_bot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#telegram"/></svg>@VillaNavidenaSM_bot</a></footer>
 </div>
 <dialog id="eventDialog" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" onclick="dialogOutsideClick(event)">
  <div class="dialog-inner" id="dialogContent"></div>
