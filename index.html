@@ -225,7 +225,7 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}
 <div class="toolbar"><label class="sr-only" for="search">Buscar actividades</label><input id="search" type="search" placeholder="Buscar: circo, Reyes, villancicos…" oninput="applyFilters()"><label class="sr-only" for="category">Categoría</label><select id="category" onchange="onAdvancedChange()"><option value="">Todo tipo de plan</option></select><label class="sr-only" for="place">Lugar</label><select id="place" onchange="applyFilters()"><option value="">Todos los lugares</option></select><label class="sr-only" for="kind">Tipo de actividad</label><select id="kind" onchange="onAdvancedChange()"><option value="special">Citas especiales</option><option value="all">Todo, con visitas</option><option value="recurring">Solo visitas de cada noche</option></select><button type="button" class="clear-filters" id="clearFilters" onclick="clearFilters()" hidden>Limpiar filtros</button></div>
 <div class="tickets" id="results"></div><button class="btn" id="showmore" onclick="increaseLimit()">Ver más citas ↓</button></section>
 
-<footer><span>Horarios según el programa municipal; pueden cambiar. Santa Marta de Tormes, Navidad 2026/27.</span><button id="jsonBtn" onclick="downloadJSON()">Descargar datos (.json)</button></footer>
+<footer><span>Horarios según el programa municipal; pueden cambiar. Santa Marta de Tormes, Navidad 2026/27.</span><!--<button id="jsonBtn" onclick="downloadJSON()">Descargar datos (.json)</button>-->EFG</footer>
 </div>
 <dialog id="eventDialog" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" onclick="dialogOutsideClick(event)">
  <div class="dialog-inner" id="dialogContent"></div>
