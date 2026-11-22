@@ -2,7 +2,7 @@
 
 Web estática e interactiva para consultar el programa de Navidad 2026/27 de **Santa Marta de Tormes (Salamanca)**, del **4 de diciembre de 2026 al 6 de enero de 2027**. Presenta las actividades mediante una estética de cartel navideño vintage, con tarjetas en forma de entrada.
 
-> **Estado:** prototipo funcional, basado en el cartel municipal y en los JSON preparados para el proyecto del bot de Telegram. No es una publicación oficial del Ayuntamiento ni dispone de actualización automática.
+> **Estado:** prototipo funcional, basado en el cartel municipal. No es una publicación oficial del Ayuntamiento ni dispone de actualización automática.
 
 ## Estado actual
 
@@ -47,17 +47,9 @@ Los **136 registros recurrentes** representan cuatro actividades o instalaciones
 La última versión revisada se encuentra en:
 
 ```text
-Navidad en Santa Marta · 2026_27(1).html
+index.html
 ```
 
-En los archivos de trabajo también existen los conjuntos de datos de referencia:
-
-```text
-eventos_navidad_santa_marta_2026_2027_completo_lugares_corregidos.json
-places_navidad_2026_2027_actualizado.json
-```
-
-**Importante:** el HTML actual **no carga esos archivos en tiempo de ejecución**. Los datos están incrustados en `const DATA = { events: [...], places: [...] }`. Modificar un JSON externo por sí solo no actualiza la web: hay que regenerar o editar el bloque `DATA` del HTML.
 
 ## Puesta en marcha
 
@@ -96,15 +88,6 @@ La web distingue las visitas recurrentes de las citas especiales por la categor�
 5. **Actualización manual:** cualquier modificación de horarios, ubicaciones o cancelaciones exige actualizar los datos incrustados en el HTML.
 6. **Visitas repetidas:** la ficha de una visita recurrente utiliza como referencia uno de los registros diarios; la fecha aplicable al usuario debe tratarse con cuidado al compartir o añadir al calendario.
 7. **Dependencias externas:** las tipografías y los servicios enlazados requieren acceso a Internet.
-
-## Siguientes pasos recomendados
-
-- Corregir el listado de ubicaciones y el estado vacío de sus filtros.
-- Señalizar explícitamente las horas de fin estimadas en Google Calendar.
-- Incorporar un mapa geográfico real solo para puntos correctamente localizados.
-- Separar datos (`events.json`, `places.json`) de la presentación y definir un proceso de actualización reutilizable.
-- Añadir pruebas automáticas para IDs únicos, fechas, horarios y referencias `PlaceId`.
-- Valorar enlaces entre esta agenda web y el **bot de fiestas de Telegram**. **Esta integración todavía no está implementada.**
 
 ## Fuente y alcance
 
